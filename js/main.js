@@ -11,9 +11,23 @@ function mdpro(editor){
 		$('#preview').html(html);
 	}
 	this.export = function(format){
-		$.post( "export.php", { html: this.converter.makeHtml(this.getText()), type: format }, function( data ) {
-			return data;
-		});
+		var form = $('<form/>')
+			.attr('method',	'POST')
+			.attr('target',	'_blank')
+			.attr('action',	'./export.php')
+			.attr('id',	'tempForm')
+			;
+		form.append($('<input/>')
+			.attr('name', 'html')
+			.attr('value', this.converter.makeHtml(this.getText()))
+		);
+		form.append($('<input/>')
+			.attr('name', 'type')
+			.attr('value', format)
+		);
+		$('body').append(form);
+		$('#tempForm').submit();
+		$('#tempForm').remove();
 	}
 }
 var mdpro = new mdpro(editor);
@@ -22,4 +36,8 @@ $(function() {
 	$( "#editor" ).resizable({
 		"handles":"e"
 	});
+});
+$('.export').click(function(e){
+	var format = e.target.getAttribute('format');
+	mdpro.export(format);
 });
