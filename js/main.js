@@ -1,6 +1,6 @@
 function mdpro(editor){
 	this.previewStyle = "github-markdown";
-	this.editorStyle = "monokai";
+	this.editorStyle = "idle_fingers";
 	this.editor = editor;
 	this.getText = function(){
 		return editor.getValue();
@@ -72,4 +72,8 @@ var mdpro = new mdpro(editor);
 $('.export').click(function(e){
 	var format = e.target.getAttribute('format');
 	mdpro.export(format);
+});
+$('.style').click( function(e){
+	var theme = e.target.getAttribute('theme');
+	mdpro.changeEditorStyle(theme);
 });
