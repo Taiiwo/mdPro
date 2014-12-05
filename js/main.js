@@ -11,7 +11,7 @@ function mdpro(editor){
 		$('#preview').html(html);
 	}
 	this.export = function(format){
-		$.post( "export.php", { html: this.converter.makeHtml(this.getText()), type: format } ); function( data ) {
+		$.post( "export.php", { html: this.converter.makeHtml(this.getText()), type: format }, function( data ) {
 			return data;
 		});
 	}
