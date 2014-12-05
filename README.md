@@ -11,4 +11,4 @@ A free web based markdown editor.
 - Tables
 - Renders <style> tags
 
-* Not implemented yet
+\* Not implemented yet
