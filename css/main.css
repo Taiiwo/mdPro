@@ -1,0 +1,25 @@
+#editor { 
+	position: absolute;
+	top: 44px;
+	bottom: 0;
+	left: 0;
+	width: 49%;
+}
+#preview {
+	position: absolute;
+	top: 44px;
+	right: 0;
+	bottom: 0;
+	width: 49%;
+	overflow-y: scroll;
+}
+img{
+	max-width: 100%;
+}
+.handle {
+	width: 2%;
+	position: absolute;
+	top: 44px;
+	bottom: 0;
+	
+}
