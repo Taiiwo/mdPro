@@ -38,24 +38,29 @@ function mdpro(editor){
 					.append(html)
 					;
 				html = html.prop('outerHTML');
-				console.log(html);
 				var form = $('<form/>')
-					.attr('method',	'POST')
-					.attr('target',	'_blank')
-					.attr('action',	'./export.php')
-					.attr('id',	'tempForm')
+					.attr('method',		'POST'		)
+					.attr('target',		'tempIFrame'	)
+					.attr('action',		'./export.php'	)
+					.attr('id',		'tempForm'	)
 					;
-				form.append($('<input/>')
-					.attr('name', 'html')
-					.attr('value', html)
+				form.append($('<input/>'	)
+					.attr('name', 'html'	)
+					.attr('value', html	)
 				);
 				form.append($('<input/>')
-					.attr('name', 'type')
-					.attr('value', format)
+					.attr('name', 'type'	)
+					.attr('value', format	)
 				);
-				$('body').append(form);
-				$('#tempForm').submit();
-				$('#tempForm').remove();
+				if ($('iframe[name="tempIFrame"]').length < 1) {
+					var iframe = $('<iframe/>')
+						.attr('name', 'tempIFrame')
+					;
+				}
+				$('body').append(form	);
+				$('body').append(iframe	);
+				$('#tempForm').submit(	);
+				$('#tempForm').remove(	);
 			}
 		});
 	}
