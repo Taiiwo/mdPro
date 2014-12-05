@@ -1,5 +1,7 @@
 function mdpro(editor){
-	this.style = "github-markdown";
+	this.previewStyle = "github-markdown";
+	this.editorStyle = "monokai";
+	this.editor = editor;
 	this.getText = function(){
 		return editor.getValue();
 	}
@@ -11,9 +13,21 @@ function mdpro(editor){
 		html = html.replace(regex, "<sorry />");
 		$('#preview').html(html);
 	}
+	this.changePreviewStyle = function(style) {
+		$('link[href="css/styles/" + this.previewStyle + ".css"]').remove();
+		this.previewStyle = style;
+		$('head').append($('<link/>')
+			.attr('type','text/css')
+			.attr('rel','stylesheet')
+			.attr('href','css/styles/' + this.previewStyle + '.css')
+		);
+	}
+	this.changeEditorStyle = function(style) {
+		this.editor.setTheme("ace/theme/" + style);
+	}
 	this.export = function(format){
 		var this2 = this;
-		$.ajax('./css/styles/' + this.style + ".css", {
+		$.ajax('./css/styles/' + this.previewStyle + ".css", {
 			success: function(style){
 				var html = $(this2.converter.makeHtml(this2.getText()));
 				html = $('<body/>')
@@ -45,14 +59,16 @@ function mdpro(editor){
 			}
 		});
 	}
-}
-var mdpro = new mdpro(editor);
-editor.on('change', function(e) {mdpro.update();})
-$(function() {
-	$( "#editor" ).resizable({
-		"handles":"e"
+	// init the editor
+	this.editor.getSession().setMode("ace/mode/markdown");
+	this.changeEditorStyle(this.editorStyle);
+	var subThis = this;
+	this.editor.on('change', function(e) {
+		subThis.update();
 	});
-});
+}
+editor = ace.edit("editor");
+var mdpro = new mdpro(editor);
 $('.export').click(function(e){
 	var format = e.target.getAttribute('format');
 	mdpro.export(format);
