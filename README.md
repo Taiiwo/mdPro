@@ -9,6 +9,6 @@ A free web based markdown editor.
 - Exports to docx, pdf, html, etc
 - Imports files from cloud storage*
 - Tables
-- Renders <style> tags
+- Renders \<style\> tags
 
 \* Not implemented yet
