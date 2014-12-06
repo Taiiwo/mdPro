@@ -91,3 +91,11 @@ $('.style').click( function(e){// set style option click event
 	var theme = e.target.getAttribute('theme');
 	mdpro.changeEditorStyle(theme);
 });
+$('#openFilePanel').click( function (e){// make the file panel appear when clicking 'files'
+	if ( $('#files').width() == 300){
+		$('#files').animate({'width':0},200);
+	}
+	else {
+		$('#files').animate({'width':300},200);
+	}
+});
