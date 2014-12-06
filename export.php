@@ -2,8 +2,12 @@
 $html = 	$_REQUEST['html'];
 $format = 	$_REQUEST['type'];
 
-// if not $format in ['pdf','docx','odt','xml','html','markdown']:
-if (!in_array($format, array('pdf','docx','odt','xml','html','markdown'))){
+// if not $format in ['markdown',rst','html','latex',
+//	'context','mediawiki','textile','org','textinfo',
+//	'docbook','docx','epub','mobi','asciidoc','rtf']:
+if (!in_array($format, array('markdown',rst','html','latex',
+      'context','mediawiki','textile','org','textinfo',
+      'docbook','docx','epub','mobi','asciidoc','rtf'))){
 	die("Invalid Format");
 }
 //Save string into temp file
