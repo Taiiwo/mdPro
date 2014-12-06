@@ -16,6 +16,11 @@ $fields = array('from' => 'html',
     'to' => $format,
     'input_files[]' => '@'.$file
 );
+if ( $format == "docx" ){
+	$fields.append(
+		
+	);
+}
 //open connection
 $ch = curl_init();
 //set options
