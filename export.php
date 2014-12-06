@@ -3,10 +3,10 @@ $html = 	$_REQUEST['html'];
 $format = 	$_REQUEST['type'];
 
 // if not $format in ['markdown',rst','html','latex',
-//	'context','mediawiki','textile','org','textinfo',
+//	'context','mediawiki','textile','org','texinfo',
 //	'docbook','docx','epub','mobi','asciidoc','rtf']:
 if (!in_array($format, array('markdown',rst','html','latex',
-      'context','mediawiki','textile','org','textinfo',
+      'context','mediawiki','textile','org','texinfo',
       'docbook','docx','epub','mobi','asciidoc','rtf'))){
 	die("Invalid Format");
 }
