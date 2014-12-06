@@ -77,6 +77,7 @@
 #ddmenu li a, #ddmenu li a:link, #ddmenu li a:hover
 {
     color:inherit;
+    cursor: pointer;
 }
 #ddmenu li a:hover
 {
