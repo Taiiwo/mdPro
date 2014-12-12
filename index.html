@@ -3,10 +3,11 @@
 	<head>
 		<title>MDPro - Free Markdown Editor</title>
 		<script src="js/jquery.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 		<script src="http://ace.c9.io/build/src/ace.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/styles.js" type="text/javascript"></script>
 		<script src="js/ddmenu.js" type="text/javascript"></script>
+		<script type="text/javascript" src="http://apis.google.com/js/client.js"></script>
+		<script type="text/javascript" src="js/jquery-gdrive2.js"></script>
 		<link href="css/ddmenu.css" rel="stylesheet" type="text/css" />
 		<link href="css/main.css" rel="stylesheet" type="text/css" />
 		<link href="css/styles/github-markdown.css" rel="stylesheet" type="text/css" />
@@ -105,11 +106,12 @@
 				</div>
 			</li>
 			<li class="no-sub">
-				<span class="top-heading" id="openFilePanel">Files</span>
+				<span class="top-heading" id="toggleFilePanel">Files</span>
 			</li>
 		</ul>
 	</nav>
-	<div id="files"></div>
+	<div id="files">
+	</div>
 	<div id="editor"></div>
 	<div id="preview" class="markdown-body"></div>
 	<script src="js/showdown.js"></script>
