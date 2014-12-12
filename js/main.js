@@ -91,11 +91,27 @@ $('.style').click( function(e){// set style option click event
 	var theme = e.target.getAttribute('theme');
 	mdpro.changeEditorStyle(theme);
 });
-$('#openFilePanel').click( function (e){// make the file panel appear when clicking 'files'
-	if ( $('#files').width() == 300){
-		$('#files').animate({'width':0},200);
+var fMenu = $('#files');
+fMenu.open = function(){
+	fMenu.animate({'width':300},200);
+}
+fMenu.close = function(){
+	fMenu.animate({'width':0},200);
+}
+fMenu.toggle = function(){
+	if ( fMenu.width() == 300 ){
+		fMenu.close();
 	}
 	else {
-		$('#files').animate({'width':300},200);
+		fMenu.open();
 	}
+}
+$('#toggleFilePanel').click( fMenu.toggle );// make the file panel toggle when clicking 'files'
+
+// Google drive stuff	
+var drive = $.GDrive({
+	'appid': '929840368812-7eg5bbjl9v7j3kbhb0ajgu8a2ans3dq2.apps.googleusercontent.com',
+	'devkey':'AIzaSyAiX29-TMkuuvTGfHdv1FeH4hXpevMMhyw'
 });
+
+
