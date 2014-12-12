@@ -22,7 +22,9 @@ $fields = array('from' => 'html',
 );
 if ( $format == "docx" ){
 	$fields.append(
-		
+		'other_files[]' => '@css/styles/template.docx',
+		'table_of_contents',
+		'template' => 'template.docx'
 	);
 }
 //open connection
